@@ -43,7 +43,17 @@ public:
         return temp;
     }
 
+    friend std::ostream operator<<(std::ostream &os, Cylinder &cylinder);
+
 };
+
+std::ostream operator<<(std::ostream &os, Cylinder &cylinder) {
+    os << "Radius: " << cylinder.m_radius << std::endl;
+    os << "Height: " << cylinder.m_height << std::endl;
+    os << "Radius: " << cylinder.m_volume << std::endl;
+
+    return os;
+}
 
 int main() {
     Cylinder cylinder0;
@@ -59,7 +69,8 @@ int main() {
     // cylinder cylinder1.+(cylinder2)
     Cylinder cylinder3 = cylinder1 + cylinder2; // operator  overloading
     cylinder3.calcVolume();
-    std::cout << "Cylinder 3's volume is: " << cylinder3.getVolume() << std::endl;
+    //std::cout << "Cylinder 3's volume is: " << cylinder3.getVolume() << std::endl;
+    std::cout << cylinder3;
 
     return 0;
 }
